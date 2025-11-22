@@ -1,6 +1,6 @@
 package com.example.thereadingquest.model;
 
-public class Libro {
+public class Book {
 
     private long id;
     private long userId;
@@ -11,9 +11,9 @@ public class Libro {
     private String isbn;
     private int pagineTotali;
 
-    public Libro() {}
+    public Book() {}
 
-    public Libro(long id, long userId, String titolo, String autore, String genere, String casaEditrice, String isbn, int pagineTotali) {
+    public Book(long id, long userId, String titolo, String autore, String genere, String casaEditrice, String isbn, int pagineTotali) {
 
         this.id = id;
         this.userId = userId;
