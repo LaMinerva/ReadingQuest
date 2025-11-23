@@ -35,7 +35,7 @@
         android:id="@+id/btnAccedi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Accedi"/>
+        android:text="Accedi" />
 
     <Space
         android:layout_width="match_parent"
@@ -45,6 +45,6 @@
         android:id="@+id/btnVaiARegistrazione"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrati"/>
+        android:text="Registrati" />
 
 </LinearLayout>
