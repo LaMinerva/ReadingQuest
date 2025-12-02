@@ -1,24 +1,42 @@
 package com.example.thereadingquest;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.thereadingquest.ui.campaign.CampaignActivity;
+import com.example.thereadingquest.ui.books.BooksActivity;
+import com.example.thereadingquest.ui.test.ReadingTestIntroActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btnLibri;
+    private Button btnCampagna;
+    private Button btnTestLettura;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        btnLibri = findViewById(R.id.btnLibri);
+        btnCampagna = findViewById(R.id.btnCampagna);
+        btnTestLettura = findViewById(R.id.btnTestLettura);
+
+        btnLibri.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BooksActivity.class);
+            startActivity(intent);
+        });
+
+        btnCampagna.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CampaignActivity.class);
+        });
+
+        btnTestLettura.setOnClickListener(v -> {
+           Intent intent = new Intent(MainActivity.this, ReadingTestIntroActivity.class);
+           startActivity(intent);
         });
     }
 }
