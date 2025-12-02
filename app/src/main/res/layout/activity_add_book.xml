@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/txtTitoloAddBok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aggiungi un nuovo libro"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/edtTitoloLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Titolo"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edtAutoreLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Autore"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edtGenereLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Genere"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edtCasaEditriceLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Casa editrice"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edtIsbnLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ISBN"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edtPagineTotaliLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numero pagine"
+            android:inputType="number"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnSalvaLibro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salva libro" />
+
+    </LinearLayout>
+
+</ScrollView>
