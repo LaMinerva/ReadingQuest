@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.thereadingquest.R;
 
-public class CampaignActivity {
+public class CampaignActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

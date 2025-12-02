@@ -10,7 +10,7 @@ import com.example.thereadingquest.R;
 public class ReadingTestIntroActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstance){
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading_test_intro);
 

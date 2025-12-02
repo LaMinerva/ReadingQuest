@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnCampagna.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CampaignActivity.class);
+            startActivity(intent);
         });
 
         btnTestLettura.setOnClickListener(v -> {
