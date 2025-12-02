@@ -26,6 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.books.BooksActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.campaign.CampaignActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.test.ReadingTestIntroActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
