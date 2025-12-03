@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import androidx.annotation.NonNull;
+
 import com.example.thereadingquest.model.Book;
 
 import java.util.ArrayList;
@@ -17,7 +19,6 @@ public class BookRepository {
         public BookRepository(Context context){
             this.dbHelper = new DatabaseHelper(context);
         }
-
         public long inserisciLibro(Book book, long userId){
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -26,7 +27,7 @@ public class BookRepository {
             values.put("titolo", book.getTitolo());
             values.put("autore", book.getAutore());
             values.put("genere", book.getGenere());
-            values.put("casa_editricce", book.getCasaEditrice());
+            values.put("casa_editrice", book.getCasaEditrice());
             values.put("isbn", book.getIsbn());
             values.put("pagine_totali", book.getPagineTotali());
 
