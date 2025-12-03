@@ -38,6 +38,9 @@
         <activity
             android:name=".ui.books.AddBookActivity"
             android:exported="false"/>
+        <activity
+            android:name=".ui.test.ReadingTestActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

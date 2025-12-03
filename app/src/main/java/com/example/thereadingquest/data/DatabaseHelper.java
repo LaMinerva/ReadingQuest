@@ -3,6 +3,12 @@ package com.example.thereadingquest.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.content.ContentValues;
+import android.database.Cursor;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "readingquest.db";
@@ -93,6 +99,70 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
 
         onCreate(db);
+    }
+
+    public long inserisciReadingTest(long userId, int paroleTotali, long tempoTotaleMs) {
+        double minuti = tempoTotaleMs / 60000.0;
+        double mediaVelocita = paroleTotali / minuti;
+
+        String createdAt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                .format(new Date());
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("user_id", userId);
+        values.put("tempo_totale_ms", tempoTotaleMs);
+        values.put("media_velocita", mediaVelocita);
+        values.put("created_at", createdAt);
+
+        long newId = db.insert(TABLE_READING_TESTS, null, values);
+        db.close();
+        return newId;
+    }
+
+    public void aggiornaMediaLettura(long userId) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT AVG(media_velocita) AS avg_vel FROM " + TABLE_READING_TESTS + " WHERE user_id = ?";
+        Cursor cursor = db.rawQuery(sql, new String[]{ String.valueOf(userId) });
+
+        double nuovaMedia = 0.0;
+
+        if (cursor != null) {
+            if (cursor.moveToFirst() && !cursor.isNull(0)) {
+                nuovaMedia = cursor.getDouble(0);
+            }
+            cursor.close();
+        }
+
+        db.close();
+
+        SQLiteDatabase dbWrite = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("avg_reading_speed", nuovaMedia);
+
+        dbWrite.update(TABLE_USERS, values, "id = ?", new String[]{ String.valueOf(userId) });
+        dbWrite.close();
+    }
+
+    public double leggiMediaLettura(long userId) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT avg_reading_speed FROM " + TABLE_USERS + " WHERE id = ?";
+        Cursor cursor = db.rawQuery(sql, new String[]{ String.valueOf(userId) });
+
+        double media = 0.0;
+
+        if (cursor != null) {
+            if (cursor.moveToFirst() && !cursor.isNull(0)) {
+                media = cursor.getDouble(0);
+            }
+            cursor.close();
+        }
+
+        db.close();
+        return media;
     }
 
 }

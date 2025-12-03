@@ -11,4 +11,11 @@
         android:layout_height="wrap_content"
         android:text="Test di lettura"
         android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnIniziaTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:layout_marginTop="10dp" />
 </LinearLayout>
