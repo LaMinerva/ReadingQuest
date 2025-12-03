@@ -68,5 +68,4 @@
             android:text="Salva libro" />
 
     </LinearLayout>
-
 </ScrollView>
