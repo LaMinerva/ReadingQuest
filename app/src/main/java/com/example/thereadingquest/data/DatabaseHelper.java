@@ -165,4 +165,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return media;
     }
 
+    public long creaMissione(long userId, long bookId, int xp, int monete, String deadline) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues v = new ContentValues();
+        v.put("user_id", userId);
+        v.put("book_id", bookId);
+        v.put("missione", 1);
+        v.put("status", "in lettura");
+        v.put("xp_reward", xp);
+        v.put("monete_reward", monete);
+        v.put("deadline", deadline);
+        v.put("iniziato_da", System.currentTimeMillis());
+
+        long id = db.insert("book_progress", null, v);
+        db.close();
+        return id;
+    }
+
+    /*
+    *
+    * public double leggiAvgReadingSpeed(long userId) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "SELECT avg_reading_speed FROM " + TABLE_USERS + " WHERE id = ?";
+        Cursor cursor = db.rawQuery(sql, new String[]{ String.valueOf(userId) });
+
+        double media = 0;
+
+        if (cursor != null) {
+            if (cursor.moveToFirst() && !cursor.isNull(0)){
+                media = cursor.getDouble(0);
+            }
+            cursor.close();
+        }
+        db.close();
+        return media;
+    }
+    *
+    *
+    * */
+
+
 }

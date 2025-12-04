@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.thereadingquest.R;
 import com.example.thereadingquest.data.BookRepository;
 import com.example.thereadingquest.model.Book;
+import com.example.thereadingquest.ui.books.BookMissionActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,13 @@ public class BooksActivity extends AppCompatActivity{
        btnAggiungiLibro = findViewById(R.id.btnAggiungiLibro);
 
        recyclerLibri.setLayoutManager(new LinearLayoutManager(this));
-       bookAdapter = new BookAdapter(new ArrayList<>());
+
+       bookAdapter = new BookAdapter(new ArrayList<>(), libro -> {
+          Intent intent = new Intent(BooksActivity.this, BookMissionActivity.class);
+          intent.putExtra("book_id", libro.getId());
+          startActivity(intent);
+       });
+       recyclerLibri.setLayoutManager(new LinearLayoutManager(this));
        recyclerLibri.setAdapter(bookAdapter);
 
        currentUserId = leggiUtenteCorrente();

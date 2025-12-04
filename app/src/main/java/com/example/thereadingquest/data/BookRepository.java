@@ -93,6 +93,7 @@ public class BookRepository {
                     "id",
                     "user_id",
                     "titolo",
+                    "autore",
                     "genere",
                     "casa_editrice",
                     "isbn",
@@ -168,5 +169,18 @@ public class BookRepository {
             db.close();
 
             return rowsDeleted > 0;
+        }
+
+        public double calcolaTempoStimato(int pagineTotali, double avgReadingSpeed){
+
+            int parolePerPagina = 300;
+
+            double paroleTotali = pagineTotali * parolePerPagina;
+
+            if (avgReadingSpeed <= 0) {
+                return -1;
+            }
+
+            return paroleTotali / avgReadingSpeed;
         }
 }

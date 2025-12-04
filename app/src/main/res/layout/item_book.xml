@@ -29,4 +29,12 @@
         android:text="Genere"
         android:layout_marginTop="2dp" />
 
+    <TextView
+        android:id="@+id/txtTempoStimatoLibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tempo stimato: --"
+        android:textColor="#555555"
+        android:layout_marginTop="3dp"/>
+
 </LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtMissionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="Titolo del libro"/>
+
+        <TextView
+            android:id="@+id/txtMissionAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Autore"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/txtMissionTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tempo stimato: --"
+            android:layout_marginBottom="20dp"/>
+        
+        <EditText
+            android:id="@+id/edtXPReward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="XP ricompensa"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/edtMoneyReward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Monete ricompensa"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/edtDeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deadline"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnAssegnaMissione"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Assegna missione" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -41,6 +41,9 @@
         <activity
             android:name=".ui.test.ReadingTestActivity"
             android:exported="false"/>
+        <activity
+            android:name=".ui.books.BookMissionActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
