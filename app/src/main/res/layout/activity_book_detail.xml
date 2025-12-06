@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtTitoloLibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titolo libro"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtAutoreLibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autore"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/txtInfoLibro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Genere • 300 pagine"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stato lettura:"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerStato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnSalvaStato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salva stato"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btnImpostaMissione"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Imposta missione"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

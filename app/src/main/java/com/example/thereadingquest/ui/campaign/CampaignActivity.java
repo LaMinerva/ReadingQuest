@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.thereadingquest.R;
+import com.example.thereadingquest.data.DatabaseHelper;
 
 public class CampaignActivity extends AppCompatActivity{
 
@@ -15,6 +16,10 @@ public class CampaignActivity extends AppCompatActivity{
         setContentView(R.layout.activity_campaign);
 
         TextView txt = findViewById(R.id.txtCampaignPlaceholder);
-        txt.setText("Sezione campagna");
+
+        DatabaseHelper db = new DatabaseHelper(this);
+        int missioniAttive = db.contaMissioniAttive();
+
+        txt.setText("Missioni attive: " + missioniAttive);
     }
 }

@@ -92,8 +92,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
 
-        db.execSQL("DROP TABLE IF EXISTS " +  TABLE_READING_TEST_PAGES);
-        db.execSQL("DROP TABLE IF EXISTS " +  TABLE_READING_TESTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_READING_TEST_PAGES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_READING_TESTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BOOK_PROGRESS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BOOKS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
@@ -169,19 +169,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues v = new ContentValues();
-        v.put("user_id", userId);
+
         v.put("book_id", bookId);
         v.put("missione", 1);
         v.put("status", "in lettura");
         v.put("xp_reward", xp);
         v.put("monete_reward", monete);
-        v.put("deadline", deadline);
-        v.put("iniziato_da", System.currentTimeMillis());
+        v.put("start_date", String.valueOf(System.currentTimeMillis()));
+        v.put("end_date", deadline);
 
-        long id = db.insert("book_progress", null, v);
+        long id = db.insert(TABLE_BOOK_PROGRESS, null, v);
         db.close();
         return id;
     }
+
+    public int contaMissioniAttive(){
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor c = db.rawQuery(
+                "SELECT COUNT(*) FROM " + TABLE_BOOK_PROGRESS + " WHERE missione = '1'", null
+        );
+
+        int count = 0;
+        if (c.moveToFirst()){
+            count = c.getInt(0);
+        }
+
+        c.close();
+        db.close();
+        return count;
+    }
+
 
     /*
     *
