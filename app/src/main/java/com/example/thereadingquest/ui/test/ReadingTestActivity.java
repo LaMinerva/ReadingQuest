@@ -80,11 +80,11 @@ public class ReadingTestActivity extends AppCompatActivity {
     }
 
     private void preparaTesti() {
-        testi.add("Pagina 1: Lorem ipsum dolor sit amet...");
-        testi.add("Pagina 2: Nulla facilisi. Sed id sapien...");
-        testi.add("Pagina 3: Lorem ipsum dolor sit amet...");
-        testi.add("Pagina 4: Nulla facilisi. Sed id sapien...");
-        testi.add("Pagina 5: Lorem ipsum dolor sit amet...");
+        testi.add("Pagina 1: FANTASCIENZA 🚀");
+        testi.add("Pagina 2: CLASSICI 🕰️");
+        testi.add("Pagina 3: FANTASY️ 🧙🏾‍♂️");
+        testi.add("Pagina 4: NON-FICTION 👨🏾‍🏫");
+        testi.add("Pagina 5: SAGGISTICA 📔");
     }
 
     private void mostraPaginaCorrente() {
